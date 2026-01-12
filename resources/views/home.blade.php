@@ -34,7 +34,7 @@
                 </button>
             </div>
         </div>
-        
+
         <div class="col-lg-4 d-none d-lg-block">
             <div class="rounded-3 mb-3 p-3 text-white shadow-sm" style="height: 140px; background-color: #fa591d;">
                 <h5>Flash Sale</h5>
@@ -73,35 +73,35 @@
         <div class="col">
             <div class="product-card d-flex flex-column">
                 <div class="position-relative">
-                    <img src="https://dummyimage.com/300x300/dee2e6/6c757d.jpg&text={{ urlencode($product->name) }}" 
-                         class="card-img-top object-fit-cover" 
-                         style="height: 150px;" 
-                         alt="{{ $product->name }}">
+                    <img src="{{ asset('img/products/' . $product->image) }}"
+                        class="card-img-top object-fit-cover"
+                        style="height: 150px;"
+                        alt="{{ $product->name }}">
                     <span class="position-absolute top-0 end-0 bg-warning text-dark badge m-1 rounded-1" style="font-size: 0.6rem;">10% OFF</span>
                 </div>
-                
+
                 <div class="p-2 d-flex flex-column flex-grow-1">
                     <p class="card-title text-dark text-truncate mb-1" style="font-size: 0.9rem;">
                         {{ $product->name }}
                     </p>
-                    
+
                     <p class="product-price mb-1">
                         Rp{{ number_format($product->price, 0, ',', '.') }}
                     </p>
-                    
+
                     <div class="mt-auto">
                         <div class="shop-location mb-1 text-truncate">
                             <i class="bi bi-geo-alt-fill text-secondary"></i> {{ $product->shop->address ?? 'Yogyakarta' }}
                         </div>
-                        
+
                         <div class="d-flex align-items-center small text-muted" style="font-size: 0.7rem;">
-                            <i class="bi bi-star-fill rating-star me-1"></i> 
+                            <i class="bi bi-star-fill rating-star me-1"></i>
                             <span>4.8</span>
                             <span class="mx-1">|</span>
                             <span>Terjual {{ rand(10, 100) }}</span>
                         </div>
                     </div>
-                    
+
                     <a href="{{ route('product.detail', $product->id) }}" class="stretched-link"></a>
                 </div>
             </div>

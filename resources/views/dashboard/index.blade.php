@@ -51,7 +51,7 @@
                         <small class="text-uppercase text-muted fw-bold" style="font-size: 0.7rem;">Akun</small>
                     </div>
                     
-                    <a href="#" class="dashboard-menu-item">
+                    <a href="{{ route('profile.edit') }}" class="dashboard-menu-item">
                         <i class="bi bi-person-gear"></i> Pengaturan Akun
                     </a>
                     
