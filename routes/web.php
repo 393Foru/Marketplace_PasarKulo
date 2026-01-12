@@ -5,6 +5,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AuthController; // <--- PASTIKAN BARIS INI ADA
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MyProductController;
+use App\Http\Controllers\CartController;
 
 // Halaman Publik (Home, Produk, Toko)
 Route::get('/', [PublicController::class, 'index'])->name('home');
@@ -32,6 +33,11 @@ Route::middleware('auth')->group(function () {
 
     // CRUD Produk (Route Resource otomatis membuat jalur create, store, edit, update, destroy)
     Route::resource('dashboard/my-products', MyProductController::class);
+
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index'); // Halaman Keranjang
+    Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add'); // Tambah Item
+    Route::delete('/cart/remove/{id}', [CartController::class, 'destroy'])->name('cart.remove');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     
     // Nanti kita tambah route "Tambah Produk" disini...
 });

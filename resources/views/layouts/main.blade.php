@@ -28,10 +28,10 @@
             </div>
 
             <div class="d-flex align-items-center gap-3">
-                <a href="#" class="text-dark fs-5 position-relative me-2">
+                <a href="{{ route('cart.index') }}" class="nav-link">
                     <i class="bi bi-cart"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle" style="font-size: 0.5rem;">
-                        <span class="visually-hidden">New alerts</span>
+                    <span class="badge bg-danger">
+                        {{ \App\Models\Cart::where('user_id', auth()->id())->count() }}
                     </span>
                 </a>
                 
