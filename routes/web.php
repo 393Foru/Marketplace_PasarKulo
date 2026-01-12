@@ -18,9 +18,6 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
     
-    // CRUD Produk (Route Resource otomatis membuat jalur create, store, edit, update, destroy)
-    Route::resource('dashboard/my-products', MyProductController::class);
-    
     });
 
 // ROUTE KHUSUS MEMBER (Harus Login)
@@ -32,6 +29,9 @@ Route::middleware('auth')->group(function () {
     // Buka Toko
     Route::get('/buka-toko', [DashboardController::class, 'createShop'])->name('shop.create');
     Route::post('/buka-toko', [DashboardController::class, 'storeShop'])->name('shop.store');
+
+    // CRUD Produk (Route Resource otomatis membuat jalur create, store, edit, update, destroy)
+    Route::resource('dashboard/my-products', MyProductController::class);
     
     // Nanti kita tambah route "Tambah Produk" disini...
 });
