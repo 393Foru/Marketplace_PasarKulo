@@ -135,11 +135,10 @@
                 <div class="col-lg-2 col-md-6">
                     <h6 class="fw-bold mb-3">Bantuan</h6>
                     <ul class="list-unstyled text-muted small footer-link-list">
-                        <li><a href="#">Cara Belanja</a></li>
+                        <li><a href="{{ route('help') }}">Pusat Bantuan</a></li>
+                        <li><a href="{{ route('help') }}">Cara Belanja</a></li>
                         <li><a href="#">Syarat & Ketentuan</a></li>
-                        <li><a href="#">Kebijakan Privasi</a></li>
-                        <li><a href="#">Hubungi Kami</a></li>
-                        <li><a href="#">Panduan Penjual</a></li>
+                        <li><a href="{{ route('help') }}">Hubungi Kami</a></li>
                     </ul>
                 </div>
 
