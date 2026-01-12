@@ -1,0 +1,236 @@
+/* =========================================
+   VARIABLES & GLOBAL
+   ========================================= */
+:root {
+    --primary-color: purple; /* Hijau Khas Marketplace */
+    --primary-dark: purple;
+    --accent-color: #fa591d; /* Oranye untuk harga/diskon */
+    --text-muted: #6c757d;
+    --bg-light: #f0f3f7;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--bg-light);
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================================
+   NAVBAR STYLING
+   ========================================= */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    padding: 0.75rem 0;
+}
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.search-input {
+    border: 1px solid #e2e8f0;
+    background-color: var(--bg-light);
+    border-radius: 8px 0 0 8px;
+    font-size: 0.9rem;
+}
+
+.search-btn {
+    background-color: var(--bg-light);
+    border: 1px solid #e2e8f0;
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    color: var(--text-muted);
+}
+
+.search-btn:hover {
+    background-color: #e2e6ea;
+}
+
+/* =========================================
+   PRODUCT CARD STYLING
+   ========================================= */
+.product-card {
+    border: none;
+    border-radius: 8px;
+    background: #fff;
+    transition: all 0.2s;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.product-price {
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.shop-location {
+    font-size: 0.75rem;
+    color: #979797;
+}
+
+.rating-star {
+    color: #ffc400;
+    font-size: 0.75rem;
+}
+
+/* Card Hover Khusus di Halaman Shop Detail */
+.shop-product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+}
+
+/* =========================================
+   FOOTER STYLING
+   ========================================= */
+footer {
+    background-color: #fff;
+    border-top: 1px solid #e2e8f0;
+}
+
+.footer-link-list li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-link-list a {
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.footer-link-list a:hover {
+    color: var(--primary-color);
+    padding-left: 5px; /* Efek geser dikit pas di hover */
+}
+
+.social-icon {
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.social-icon:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+/* Badge kotak untuk Bank/Kurir */
+.payment-badge, .shipment-badge {
+    background-color: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #555;
+    cursor: default;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+
+/* =========================================
+   DASHBOARD / SELLER CENTRE
+   ========================================= */
+.dashboard-sidebar {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.dashboard-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-left: 4px solid transparent;
+    transition: all 0.2s;
+}
+
+.dashboard-menu-item:hover {
+    background-color: #f8f9fa;
+    color: var(--primary-color);
+}
+
+.dashboard-menu-item.active {
+    background-color: rgb(239, 232, 239); /* Hijau sangat muda */
+    color: var(--primary-color);
+    border-left-color: var(--primary-color);
+}
+
+.dashboard-menu-item i {
+    font-size: 1.2rem;
+    margin-right: 12px;
+    width: 24px;
+    text-align: center;
+}
+
+.stat-card {
+    border: none;
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    height: 100%;
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-icon-bg {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.text-judul {
+    color: purple;
+}
+
+.ungu {
+    background-color: purple;
+    color: white;
+}
+
+.ungu-btn {
+    border-color: purple;
+    color: purple;
+}
+
+.ungu-btn:hover {
+    border-color: none;
+    color: white;
+    background-color: purple;
+}
