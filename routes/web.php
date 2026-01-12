@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController; // <--- PASTIKAN BARIS INI ADA
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MyProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 
 // Halaman Publik (Home, Produk, Toko)
 Route::get('/', [PublicController::class, 'index'])->name('home');
@@ -38,6 +39,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add'); // Tambah Item
     Route::delete('/cart/remove/{id}', [CartController::class, 'destroy'])->name('cart.remove');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+    Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');
+
+    Route::patch('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
     
     // Nanti kita tambah route "Tambah Produk" disini...
 });

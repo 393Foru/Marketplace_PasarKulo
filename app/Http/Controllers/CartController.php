@@ -53,4 +53,28 @@ class CartController extends Controller
         Cart::destroy($id);
         return redirect()->back()->with('success', 'Item dihapus!');
     }
+
+    public function update(Request $request, $id)
+{
+    // Cari item keranjang milik user
+    $cart = Cart::where('id', $id)->where('user_id', Auth::id())->first();
+
+    if(!$cart) {
+        return redirect()->back()->with('error', 'Item tidak ditemukan!');
+    }
+
+    // Cek tombol mana yang ditekan berdasarkan value dari input 'type'
+    if ($request->type == 'increase') {
+        // Tambah quantity
+        $cart->quantity += 1;
+    } elseif ($request->type == 'decrease') {
+        // Kurangi quantity, TAPI jangan sampai kurang dari 1
+        if ($cart->quantity > 1) {
+            $cart->quantity -= 1;
+        }
+    }
+
+    $cart->save();
+    return redirect()->back()->with('success', 'Keranjang diperbarui!');
+}
 }

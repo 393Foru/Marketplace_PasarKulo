@@ -11,6 +11,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
     <link href="{{ asset('css/pasarkulo.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .cart-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .summary-card {
+            position: sticky;
+            top: 20px; /* Agar tetap diam saat scroll */
+        }
+    </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
