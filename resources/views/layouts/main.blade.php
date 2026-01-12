@@ -51,7 +51,7 @@
                             <span class="fw-bold small d-none d-lg-block">{{ Auth::user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end shadow border-0">
-                            <li><a class="dropdown-item small" href="#">Profil Saya</a></li>
+                            <li> <a class="dropdown-item small" href="{{ route('profile.index') }}">Profil Saya </a></li>
                             <li><a class="dropdown-item small" href="{{ route('dashboard') }}">Dashboard Toko</a></li>
                             <li><a class="dropdown-item small" href="#">Pesanan</a></li>
                             <li><hr class="dropdown-divider"></li>
