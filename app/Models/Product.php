@@ -12,4 +12,14 @@ class Product extends Model
     {
         return $this->belongsTo(Shop::class);
     }
+
+    protected $fillable = [
+    'shop_id', 'name', 'slug', 'description', 'price', 
+    'image', 'sold_count' // <-- Tambahkan ini
+    ];
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

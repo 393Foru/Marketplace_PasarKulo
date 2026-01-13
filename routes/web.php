@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 
 // Halaman Publik (Home, Produk, Toko)
 Route::get('/', [PublicController::class, 'index'])->name('home');
+Route::get('/bantuan', [PublicController::class, 'help'])->name('help');
 Route::get('/produk/{id}', [PublicController::class, 'showProduct'])->name('product.detail');
 Route::get('/toko/{slug}', [PublicController::class, 'showShop'])->name('shop.detail');
 
