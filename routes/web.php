@@ -46,8 +46,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');
 
     Route::patch('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
-    Route::get('/profil', [ProfileController::class, 'index'])
-        ->name('profile.index');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     
     // Nanti kita tambah route "Tambah Produk" disini...
 });
