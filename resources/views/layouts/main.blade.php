@@ -64,7 +64,7 @@
                             <span class="fw-bold small d-none d-lg-block">{{ Auth::user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end shadow border-0">
-                            <li><a class="dropdown-item small" href="#">Profil Saya</a></li>
+                            <li> <a class="dropdown-item small" href="{{ route('profile.index') }}">Profil Saya </a></li>
                             <li><a class="dropdown-item small" href="{{ route('dashboard') }}">Dashboard Toko</a></li>
                             <li><a class="dropdown-item small" href="#">Pesanan</a></li>
                             <li><hr class="dropdown-divider"></li>
@@ -148,11 +148,9 @@
                 <div class="col-lg-2 col-md-6">
                     <h6 class="fw-bold mb-3">Bantuan</h6>
                     <ul class="list-unstyled text-muted small footer-link-list">
-                        <li><a href="#">Cara Belanja</a></li>
-                        <li><a href="#">Syarat & Ketentuan</a></li>
-                        <li><a href="#">Kebijakan Privasi</a></li>
-                        <li><a href="#">Hubungi Kami</a></li>
-                        <li><a href="#">Panduan Penjual</a></li>
+                        <li><a href="{{ route('help') }}">Pusat Bantuan</a></li>
+                        <li><a href="{{ route('help') }}">Cara Belanja</a></li>
+                        <li><a href="{{ route('help') }}">Hubungi Kami</a></li>
                     </ul>
                 </div>
 

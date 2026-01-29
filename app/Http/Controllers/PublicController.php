@@ -23,9 +23,31 @@ class PublicController extends Controller
     }
 
     // Halaman Detail Toko
-    public function showShop($slug)
+    public function showShop(Request $request, $slug)
     {
         $shop = Shop::with('products')->where('slug', $slug)->firstOrFail();
-        return view('shop-detail', compact('shop'));
+        $shop = Shop::where('slug', $slug)->firstOrFail();
+
+        // Ambil parameter 'tab' dari URL, default-nya 'produk'
+        $tab = $request->query('tab', 'produk'); 
+
+        // Siapkan variabel kosong
+        $products = collect(); 
+        $reviews = collect();
+
+        if ($tab == 'ulasan') {
+            // Jika tab ulasan, ambil data review
+            $reviews = $shop->reviews()->with(['user', 'product'])->latest()->paginate(10);
+        } 
+        elseif ($tab == 'terlaris') {
+            // Jika tab terlaris, urutkan berdasarkan sold_count tertinggi
+            $products = $shop->products()->orderBy('sold_count', 'desc')->paginate(12);
+        } 
+        else {
+            // Default: Semua produk (urut terbaru)
+            $products = $shop->products()->latest()->paginate(12);
+        }
+
+        return view('shop-detail', compact('shop', 'products', 'reviews', 'tab'));
     }
 }
