@@ -6,6 +6,7 @@
 
 <div class="bg-white shadow-sm border-bottom">
     <div class="container pt-4">
+        
         <div class="row align-items-center pb-4">
             <div class="col-md-auto text-center mb-3 mb-md-0">
                 <div class="position-relative d-inline-block">
@@ -75,16 +76,15 @@
 </div>
 
 <div class="container py-4">
-    
-    {{-- LOGIKA TAMPILAN PRODUK (TAB PRODUK / TERLARIS) --}}
-    @if($tab == 'produk' || $tab == 'terlaris')
 
+    @if($tab == 'produk' || $tab == 'terlaris')
+        
         <div class="d-flex justify-content-between align-items-center mb-3">
             <small class="text-muted">
                 Menampilkan <b>{{ $products->count() }}</b> produk 
                 {{ $tab == 'terlaris' ? 'paling laris' : 'terbaru' }}
             </small>
-
+            
             <div class="dropdown">
                 <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
                     Filter Lainnya
@@ -102,19 +102,19 @@
                 <div class="card h-100 border-0 shadow-sm shop-product-card">
                     <div class="position-relative">
                         <img src="{{ $product->image ? asset('storage/'.$product->image) : 'https://dummyimage.com/300x300/dee2e6/6c757d.jpg' }}" 
-                             class="card-img-top" style="height: 150px; object-fit: cover;">
-
+                             class="card-img-top object-fit-cover" style="height: 150px;">
+                        
                         @if($tab == 'terlaris')
                             <span class="position-absolute top-0 start-0 bg-warning text-dark badge m-1 shadow-sm">
                                 <i class="bi bi-fire"></i> Best Seller
                             </span>
                         @endif
                     </div>
-
+                    
                     <div class="p-2 d-flex flex-column flex-grow-1 bg-white">
                         <p class="card-title text-dark text-truncate mb-1" style="font-size: 0.9rem;">{{ $product->name }}</p>
                         <p class="fw-bold text-success mb-1">Rp{{ number_format($product->price, 0, ',', '.') }}</p>
-
+                        
                         <div class="mt-auto d-flex align-items-center small text-muted" style="font-size: 0.7rem;">
                             <i class="bi bi-star-fill text-warning me-1"></i> 
                             <span>4.8</span>
@@ -133,15 +133,17 @@
                 <h5 class="text-muted">Tidak ada produk ditemukan.</h5>
             </div>
             @endforelse
-        </div> <div class="mt-4 d-flex justify-content-center">
+        </div>
+
+        <div class="mt-4">
             {{ $products->appends(['tab' => $tab])->links() }}
         </div>
 
-    {{-- LOGIKA TAMPILAN ULASAN (TAB ULASAN) --}}
     @elseif($tab == 'ulasan')
-
+        
         <div class="row justify-content-center">
             <div class="col-md-8">
+                
                 <div class="card border-0 bg-light mb-4 p-3">
                     <div class="d-flex align-items-center gap-3">
                         <div class="text-center">
@@ -176,13 +178,13 @@
                             </div>
                             <small class="text-muted">{{ $review->created_at->diffForHumans() }}</small>
                         </div>
-
+                        
                         <div class="mb-2">
                             @for($i=1; $i<=5; $i++)
                                 <i class="bi bi-star-fill {{ $i <= $review->rating ? 'text-warning' : 'text-muted opacity-25' }}"></i>
                             @endfor
                         </div>
-
+                        
                         <p class="text-dark mb-0" style="line-height: 1.5;">{{ $review->comment }}</p>
                     </div>
                 </div>
@@ -195,11 +197,15 @@
                 </div>
                 @endforelse
 
-                <div class="mt-4 d-flex justify-content-center">
+                <div class="mt-4">
                     {{ $reviews->appends(['tab' => 'ulasan'])->links() }}
                 </div>
             </div>
         </div>
+
+    @endif
+
+</div>
 
     @endif
 
@@ -209,6 +215,11 @@
         transform: translateY(-3px);
         box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
         transition: all 0.2s ease-in-out;
+    }
+    
+    /* Perbaikan tampilan Pagination agar tidak menempel */
+    .pagination {
+        justify-content: center;
     }
 </style>
 @endsection
