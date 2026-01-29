@@ -4,6 +4,16 @@
 
 @section('content')
 
+@if(session('success'))
+    <div class="container pt-3">
+        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i> {{ session('success') }}
+            <a href="{{ route('cart.index') }}" class="fw-bold text-decoration-underline ms-1">Lihat Keranjang</a>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+@endif
+
 <div class="bg-white shadow-sm border-bottom">
     <div class="container pt-4">
         <div class="row align-items-center pb-4">
@@ -113,14 +123,26 @@
 
                     <div class="p-2 d-flex flex-column flex-grow-1 bg-white">
                         <p class="card-title text-dark text-truncate mb-1" style="font-size: 0.9rem;">{{ $product->name }}</p>
-                        <p class="fw-bold text-success mb-1">Rp{{ number_format($product->price, 0, ',', '.') }}</p>
+                        <p class="fw-bold text-success mb-2">Rp{{ number_format($product->price, 0, ',', '.') }}</p>
 
-                        <div class="mt-auto d-flex align-items-center small text-muted" style="font-size: 0.7rem;">
-                            <i class="bi bi-star-fill text-warning me-1"></i> 
-                            <span>4.8</span>
-                            <span class="mx-1">|</span>
-                            <span>Terjual {{ $product->sold_count ?? 0 }}</span>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                            <div class="small text-muted d-flex align-items-center" style="font-size: 0.7rem;">
+                                <i class="bi bi-star-fill text-warning me-1"></i> 
+                                <span>4.8</span>
+                                <span class="mx-1">|</span>
+                                <span>{{ $product->sold_count ?? 0 }} Terjual</span>
+                            </div>
+
+                            <form action="{{ route('cart.add', $product->id) }}" method="POST" style="position: relative; z-index: 10;">
+                                @csrf
+                                <button type="submit" class="btn btn-success btn-sm p-0 d-flex align-items-center justify-content-center shadow-sm" 
+                                        style="width: 30px; height: 30px; border-radius: 50%;" 
+                                        title="Tambah ke Keranjang">
+                                    <i class="bi bi-cart-plus"></i>
+                                </button>
+                            </form>
                         </div>
+
                         <a href="{{ route('product.detail', $product->id) }}" class="stretched-link"></a>
                     </div>
                 </div>

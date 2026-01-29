@@ -22,6 +22,11 @@ class PublicController extends Controller
         return view('product-detail', compact('product'));
     }
 
+    public function help()
+    {
+        return view('help');
+    }
+
     // Halaman Detail Toko
     public function showShop(Request $request, $slug)
     {

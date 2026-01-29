@@ -4,6 +4,20 @@
 
 @section('content')
 <div class="container py-3">
+    
+    {{-- TAMBAHKAN KODE ALERT INI --}}
+    @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show shadow-sm mb-3" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i> {{ session('success') }}
+            <a href="{{ route('cart.index') }}" class="fw-bold text-decoration-underline ms-1">Lihat Keranjang</a>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
+    {{-- Lanjut ke Breadcrumb yang sudah ada... --}}
+    <nav aria-label="breadcrumb" class="small mb-3">
+
+<div class="container py-3">
     <nav aria-label="breadcrumb" class="small mb-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/" class="text-decoration-none text-muted">Beranda</a></li>
@@ -57,12 +71,15 @@
                 <hr>
 
                 <div class="d-flex gap-3 mt-4">
-                    <button class="btn btn-outline-success btn-lg px-4 fw-bold flex-grow-1">
-                        <i class="bi bi-cart-plus"></i> Keranjang
-                    </button>
+                    <form action="{{ route('cart.add', $product->id) }}" method="POST" class="flex-grow-1">
+                        @csrf
+                        <button type="submit" class="btn ungu-btn btn-lg px-4 fw-bold w-100">
+                            <i class="bi bi-cart-plus"></i> Keranjang
+                        </button>
+                    </form>
                     <a href="https://wa.me/{{ $product->shop->phone }}?text=Halo, saya mau beli *{{ $product->name }}* di Pasarkulo..." 
                        target="_blank"
-                       class="btn btn-success btn-lg px-4 fw-bold flex-grow-1">
+                       class="btn ungu btn-lg px-4 fw-bold flex-grow-1">
                         Beli Sekarang
                     </a>
                 </div>

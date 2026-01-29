@@ -12,18 +12,7 @@
 
     <link href="{{ asset('css/pasarkulo.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .cart-img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .summary-card {
-            position: sticky;
-            top: 20px; /* Agar tetap diam saat scroll */
-        }
-    </style>
+
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -95,7 +84,7 @@
         <div class="container">
             <div class="row text-center g-4">
                 <div class="col-md-4 d-flex align-items-center justify-content-center">
-                    <div class="rounded-circle bg-light p-3 me-3 text-success">
+                    <div class="rounded-circle bg-light p-3 me-3 text-judul">
                         <i class="bi bi-shield-check fs-3"></i>
                     </div>
                     <div class="text-start">
@@ -104,7 +93,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 d-flex align-items-center justify-content-center">
-                    <div class="rounded-circle bg-light p-3 me-3 text-success">
+                    <div class="rounded-circle bg-light p-3 me-3 text-judul">
                         <i class="bi bi-box-seam fs-3"></i>
                     </div>
                     <div class="text-start">
@@ -113,7 +102,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 d-flex align-items-center justify-content-center">
-                    <div class="rounded-circle bg-light p-3 me-3 text-success">
+                    <div class="rounded-circle bg-light p-3 me-3 text-judul">
                         <i class="bi bi-whatsapp fs-3"></i>
                     </div>
                     <div class="text-start">
