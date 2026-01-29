@@ -5,9 +5,9 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AuthController; // <--- PASTIKAN BARIS INI ADA
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MyProductController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProfileController;
+
+
 
 // Halaman Publik (Home, Produk, Toko)
 Route::get('/', [PublicController::class, 'index'])->name('home');
@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
     
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/profil', [ProfileController::class, 'index'])
+        ->name('profile.index');
     
     // Buka Toko
     Route::get('/buka-toko', [DashboardController::class, 'createShop'])->name('shop.create');

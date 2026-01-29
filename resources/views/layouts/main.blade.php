@@ -139,6 +139,7 @@
                     <ul class="list-unstyled text-muted small footer-link-list">
                         <li><a href="{{ route('help') }}">Pusat Bantuan</a></li>
                         <li><a href="{{ route('help') }}">Cara Belanja</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
                         <li><a href="{{ route('help') }}">Hubungi Kami</a></li>
                     </ul>
                 </div>
