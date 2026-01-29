@@ -67,9 +67,9 @@
                             ← Dashboard
                         </a>
 
-                        <button class="btn btn-primary px-4" disabled>
-                            ✏️ Edit Profil (Soon)
-                        </button>
+                        <a href="{{ route('profile.edit') }}" class="btn btn-primary px-4">
+                            ✏️ Edit Profil
+                        </a>
                     </div>
 
                 </div>

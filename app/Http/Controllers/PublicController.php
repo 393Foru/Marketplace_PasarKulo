@@ -30,6 +30,7 @@ class PublicController extends Controller
     // Halaman Detail Toko
     public function showShop(Request $request, $slug)
     {
+        $shop = Shop::with('products')->where('slug', $slug)->firstOrFail();
         $shop = Shop::where('slug', $slug)->firstOrFail();
         
         // Ambil parameter 'tab' dari URL, default-nya 'produk'
