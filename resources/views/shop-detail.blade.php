@@ -16,7 +16,6 @@
 
 <div class="bg-white shadow-sm border-bottom">
     <div class="container pt-4">
-        
         <div class="row align-items-center pb-4">
             <div class="col-md-auto text-center mb-3 mb-md-0">
                 <div class="position-relative d-inline-block">
@@ -87,6 +86,7 @@
 
 <div class="container py-4">
 
+    {{-- LOGIKA TAMPILAN PRODUK (TAB PRODUK / TERLARIS) --}}
     @if($tab == 'produk' || $tab == 'terlaris')
         
         <div class="d-flex justify-content-between align-items-center mb-3">
@@ -112,7 +112,7 @@
                 <div class="card h-100 border-0 shadow-sm shop-product-card">
                     <div class="position-relative">
                         <img src="{{ $product->image ? asset('storage/'.$product->image) : 'https://dummyimage.com/300x300/dee2e6/6c757d.jpg' }}" 
-                             class="card-img-top object-fit-cover" style="height: 150px;">
+                             class="card-img-top" style="height: 150px; object-fit: cover;">
                         
                         @if($tab == 'terlaris')
                             <span class="position-absolute top-0 start-0 bg-warning text-dark badge m-1 shadow-sm">
@@ -123,13 +123,24 @@
                     
                     <div class="p-2 d-flex flex-column flex-grow-1 bg-white">
                         <p class="card-title text-dark text-truncate mb-1" style="font-size: 0.9rem;">{{ $product->name }}</p>
-                        <p class="fw-bold text-success mb-1">Rp{{ number_format($product->price, 0, ',', '.') }}</p>
+                        <p class="fw-bold text-success mb-2">Rp{{ number_format($product->price, 0, ',', '.') }}</p>
                         
-                        <div class="mt-auto d-flex align-items-center small text-muted" style="font-size: 0.7rem;">
-                            <i class="bi bi-star-fill text-warning me-1"></i> 
-                            <span>4.8</span>
-                            <span class="mx-1">|</span>
-                            <span>Terjual {{ $product->sold_count ?? 0 }}</span>
+                        <div class="mt-auto d-flex justify-content-between align-items-center">
+                            <div class="small text-muted d-flex align-items-center" style="font-size: 0.7rem;">
+                                <i class="bi bi-star-fill text-warning me-1"></i> 
+                                <span>4.8</span>
+                                <span class="mx-1">|</span>
+                                <span>{{ $product->sold_count ?? 0 }} Terjual</span>
+                            </div>
+
+                            <form action="{{ route('cart.add', $product->id) }}" method="POST" style="position: relative; z-index: 10;">
+                                @csrf
+                                <button type="submit" class="btn btn-success btn-sm p-0 d-flex align-items-center justify-content-center shadow-sm" 
+                                        style="width: 30px; height: 30px; border-radius: 50%;" 
+                                        title="Tambah ke Keranjang">
+                                    <i class="bi bi-cart-plus"></i>
+                                </button>
+                            </form>
                         </div>
 
                         <a href="{{ route('product.detail', $product->id) }}" class="stretched-link"></a>
@@ -144,17 +155,15 @@
                 <h5 class="text-muted">Tidak ada produk ditemukan.</h5>
             </div>
             @endforelse
-        </div>
-
-        <div class="mt-4">
+        </div> <div class="mt-4 d-flex justify-content-center">
             {{ $products->appends(['tab' => $tab])->links() }}
         </div>
 
+    {{-- LOGIKA TAMPILAN ULASAN (TAB ULASAN) --}}
     @elseif($tab == 'ulasan')
         
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                
+            <div class="col-md-8">                
                 <div class="card border-0 bg-light mb-4 p-3">
                     <div class="d-flex align-items-center gap-3">
                         <div class="text-center">
@@ -208,15 +217,11 @@
                 </div>
                 @endforelse
 
-                <div class="mt-4">
+                <div class="mt-4 d-flex justify-content-center">
                     {{ $reviews->appends(['tab' => 'ulasan'])->links() }}
                 </div>
             </div>
         </div>
-
-    @endif
-
-</div>
 
     @endif
 
@@ -226,11 +231,6 @@
         transform: translateY(-3px);
         box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
         transition: all 0.2s ease-in-out;
-    }
-    
-    /* Perbaikan tampilan Pagination agar tidak menempel */
-    .pagination {
-        justify-content: center;
     }
 </style>
 @endsection
