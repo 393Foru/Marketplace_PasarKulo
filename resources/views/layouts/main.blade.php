@@ -11,6 +11,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
     <link href="{{ asset('css/pasarkulo.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .cart-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .summary-card {
+            position: sticky;
+            top: 20px; /* Agar tetap diam saat scroll */
+        }
+    </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -28,10 +41,10 @@
             </div>
 
             <div class="d-flex align-items-center gap-3">
-                <a href="#" class="text-dark fs-5 position-relative me-2">
+                <a href="{{ route('cart.index') }}" class="nav-link">
                     <i class="bi bi-cart"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle" style="font-size: 0.5rem;">
-                        <span class="visually-hidden">New alerts</span>
+                    <span class="badge bg-danger">
+                        {{ \App\Models\Cart::where('user_id', auth()->id())->count() }}
                     </span>
                 </a>
                 

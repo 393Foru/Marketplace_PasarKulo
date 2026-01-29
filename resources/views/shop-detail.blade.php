@@ -207,7 +207,9 @@
 
 </div>
 
-<style>
+    @endif
+
+</div> <style>
     /* Hover Effect khusus Card di Halaman Toko */
     .shop-product-card:hover {
         transform: translateY(-3px);

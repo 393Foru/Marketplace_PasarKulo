@@ -38,6 +38,19 @@ Route::middleware('auth')->group(function () {
 
     // CRUD Produk (Route Resource otomatis membuat jalur create, store, edit, update, destroy)
     Route::resource('dashboard/my-products', MyProductController::class);
+
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index'); // Halaman Keranjang
+    Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add'); // Tambah Item
+    Route::delete('/cart/remove/{id}', [CartController::class, 'destroy'])->name('cart.remove');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+    Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');
+
+    Route::patch('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     
     // Nanti kita tambah route "Tambah Produk" disini...
 });
