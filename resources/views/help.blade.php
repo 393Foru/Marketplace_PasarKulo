@@ -3,7 +3,7 @@
 @section('title', 'Pusat Bantuan - Pasarkulo')
 
 @section('content')
-<div class="py-5 text-center text-white" style="background: linear-gradient(135deg, #42b549, #2d8a33);">
+<div class="py-5 text-center text-white" style="background: linear-gradient(135deg, purple, orchid);">
     <div class="container">
         <h1 class="fw-bold mb-2">Apa yang bisa kami bantu?</h1>
         <p class="lead opacity-75 mb-4">Temukan jawaban seputar belanja dan jualan di Pasarkulo.</p>
@@ -24,7 +24,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             
-            <h5 class="fw-bold text-success mb-3"><i class="bi bi-question-circle-fill me-2"></i> Pertanyaan Umum</h5>
+            <h5 class="fw-bold text-judul mb-3"><i class="bi bi-question-circle-fill me-2"></i> Pertanyaan Umum</h5>
             <div class="accordion shadow-sm border-0 mb-5" id="accordionGeneral">
                 
                 <div class="accordion-item border-0 border-bottom">
@@ -55,7 +55,7 @@
 
             </div>
 
-            <h5 class="fw-bold text-success mb-3"><i class="bi bi-bag-fill me-2"></i> Untuk Pembeli</h5>
+            <h5 class="fw-bold text-judul mb-3"><i class="bi bi-bag-fill me-2"></i> Untuk Pembeli</h5>
             <div class="accordion shadow-sm border-0 mb-5" id="accordionBuyer">
                 
                 <div class="accordion-item border-0 border-bottom">
@@ -95,7 +95,7 @@
                 </div>
             </div>
 
-            <h5 class="fw-bold text-success mb-3"><i class="bi bi-shop me-2"></i> Untuk Penjual</h5>
+            <h5 class="fw-bold text-judul mb-3"><i class="bi bi-shop me-2"></i> Untuk Penjual</h5>
             <div class="accordion shadow-sm border-0 mb-5" id="accordionSeller">
                 
                 <div class="accordion-item border-0 border-bottom">

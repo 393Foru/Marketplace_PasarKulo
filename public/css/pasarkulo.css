@@ -224,6 +224,11 @@ footer {
     color: white;
 }
 
+.ungu:hover {
+    border-color: purple;
+    color: purple;
+}
+
 .ungu-btn {
     border-color: purple;
     color: purple;
@@ -234,3 +239,31 @@ footer {
     color: white;
     background-color: purple;
 }
+
+.accordion-button:not(.collapsed) {
+        /* Tambahkan !important agar Bootstrap tidak bisa menolaknya */
+        background-color: rgb(239, 232, 239) !important;
+        
+        /* Opsional: Ubah warna teks agar cocok dengan background baru */
+        color: purple !important; 
+        
+        /* Hilangkan garis/shadow biru bawaan saat diklik */
+        box-shadow: none !important; 
+    }
+
+    /* Agar saat diklik tidak ada outline biru mengganggu */
+    .accordion-button:focus {
+        box-shadow: none !important;
+        border-color: rgba(0,0,0,.125);
+    }
+
+.cart-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .summary-card {
+            position: sticky;
+            top: 20px; /* Agar tetap diam saat scroll */
+        }

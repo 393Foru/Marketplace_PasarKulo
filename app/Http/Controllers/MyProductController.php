@@ -55,7 +55,7 @@ class MyProductController extends Controller
     public function edit($id)
     {
         $product = Product::where('id', $id)->where('shop_id', Auth::user()->shop->id)->firstOrFail();
-        return view('dashboard.my-products.edit', compact('product'));
+        return view('dashboard.products.edit', compact('product'));
     }
 
     // 5. Proses Update Produk

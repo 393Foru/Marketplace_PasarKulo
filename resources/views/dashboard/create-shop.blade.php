@@ -8,7 +8,7 @@
         <div class="col-md-8">
             <div class="card border-0 shadow-sm">
                 <div class="card-header bg-white py-3 border-bottom">
-                    <h5 class="fw-bold mb-0 text-success"><i class="bi bi-shop"></i> Formulir Buka Toko</h5>
+                    <h5 class="fw-bold mb-0 text-judul"><i class="bi bi-shop"></i> Formulir Buka Toko</h5>
                 </div>
                 <div class="card-body p-4">
                     
@@ -42,7 +42,7 @@
 
                         <div class="d-flex justify-content-end gap-2">
                             <a href="{{ route('dashboard') }}" class="btn btn-light">Batal</a>
-                            <button type="submit" class="btn btn-success px-4 fw-bold">Simpan & Buka Toko</button>
+                            <button type="submit" class="btn ungu px-4 fw-bold">Simpan & Buka Toko</button>
                         </div>
                     </form>
 

@@ -78,14 +78,14 @@
                         <div class="card-body py-5">
                             <div class="mb-4">
                                 <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 120px; height: 120px;">
-                                    <i class="bi bi-shop text-success" style="font-size: 4rem;"></i>
+                                    <i class="bi bi-shop text-judul" style="font-size: 4rem;"></i>
                                 </div>
                             </div>
-                            <h2 class="fw-bold text-dark">Mari Buka Toko Pertamamu!</h2>
+                            <h2 class="fw-bold text-judul">Mari Buka Toko Pertamamu!</h2>
                             <p class="text-muted col-md-8 mx-auto mb-4">
                                 Bergabunglah dengan ratusan penjual lokal lainnya. Gratis biaya pendaftaran dan nikmati kemudahan berjualan lewat WhatsApp.
                             </p>
-                            <a href="{{ route('shop.create') }}" class="btn btn-success btn-lg px-5 fw-bold shadow-sm">
+                            <a href="{{ route('shop.create') }}" class="btn ungu btn-lg px-5 fw-bold shadow-sm">
                                 <i class="bi bi-plus-circle me-2"></i> Buka Toko Gratis Sekarang
                             </a>
                         </div>

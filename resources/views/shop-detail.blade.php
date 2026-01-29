@@ -4,6 +4,16 @@
 
 @section('content')
 
+@if(session('success'))
+    <div class="container pt-3">
+        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i> {{ session('success') }}
+            <a href="{{ route('cart.index') }}" class="fw-bold text-decoration-underline ms-1">Lihat Keranjang</a>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+@endif
+
 <div class="bg-white shadow-sm border-bottom">
     <div class="container pt-4">
         
@@ -121,6 +131,7 @@
                             <span class="mx-1">|</span>
                             <span>Terjual {{ $product->sold_count ?? 0 }}</span>
                         </div>
+
                         <a href="{{ route('product.detail', $product->id) }}" class="stretched-link"></a>
                     </div>
                 </div>

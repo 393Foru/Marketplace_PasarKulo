@@ -2,13 +2,27 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
-    protected $fillable = ['user_id', 'product_id', 'quantity'];
+    use HasFactory;
 
-    // Relasi ke Produk (untuk ambil nama, harga, gambar)
+    // PASTIKAN BARIS INI ADA DAN TULISANNYA BENAR
+    protected $fillable = [
+        'user_id', 
+        'product_id', 
+        'quantity'
+    ];
+
+    // Relasi ke User
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    // Relasi ke Product
     public function product()
     {
         return $this->belongsTo(Product::class);
